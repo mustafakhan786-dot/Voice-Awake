@@ -10,10 +10,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
 
@@ -25,10 +25,10 @@ jobs:
 
       - name: Build EXE
         run: |
-          python -m PyInstaller --noconfirm --clean --windowed --onefile --name VoiceAwareness --add-data "852Hz_alarm.mp3;." --collect-all pygame --collect-all sounddevice --collect-all webrtcvad --collect-all numpy voice_awareness.py
+          python -m PyInstaller --noconfirm --clean --windowed --onefile --name VoiceAwareness --add-data "852Hz_alarm.mp3;assets" --collect-all pygame --collect-all sounddevice --collect-all webrtcvad --collect-all numpy voice_awareness.py
 
       - name: Upload EXE
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: VoiceAwareness-Windows
           path: dist/VoiceAwareness.exe
