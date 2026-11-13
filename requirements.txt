@@ -1,0 +1,4 @@
+sounddevice>=0.4.6
+webrtcvad-wheels>=2.0.14
+pygame>=2.5.0
+numpy>=1.24
